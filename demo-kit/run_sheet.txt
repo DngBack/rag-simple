@@ -5,7 +5,7 @@ In sẵn tờ này để chạy đúng thứ tự khi lên lớp.
 ---
 ## Trước khi vào lớp
 [ ] Mở sẵn UI (ChatGPT / Playground / tool). Tool nội bộ: từ repo root chạy python demo1_nondeterminism.py (và demo2/3/4 tương ứng).
-[ ] Mở folder backup_screenshots và demo-kit/transcripts (hoặc tab ảnh/transcript backup).
+[ ] Mở folder backup_screenshots, demo-kit/transcripts, và demo-kit/samples (ảnh/transcript backup + output mẫu để chiếu).
 [ ] Kiểm tra mạng; nếu yếu → chuẩn bị dùng backup.
 [ ] Log: Model ______, Ngày ______
 
