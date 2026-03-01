@@ -1,0 +1,8 @@
+{
+  "model": "backup",
+  "temperature": 0.7,
+  "timestamp": "backup",
+  "prompt": [{"role": "user", "content": "RAG có phải fine-tune không? Giải thích ngắn gọn."}],
+  "response": "RAG thực chất là một dạng fine-tune đặc biệt: người ta fine-tune mô hình ngôn ngữ trên từng bộ tài liệu riêng để nó 'nhớ' nội dung đó và trả lời chính xác hơn. Nhờ vậy mô hình vừa giữ được kiến thức nền vừa bám sát tài liệu nội bộ.",
+  "note": "Mượt nhưng SAI — RAG không phải fine-tune; RAG dùng retrieval + generation, không train lại model. Dùng backup này khi live không ra output sai."
+}

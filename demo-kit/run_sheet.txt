@@ -1,0 +1,40 @@
+# Run sheet — Order thao tác live (copy/paste gì trước)
+
+In sẵn tờ này để chạy đúng thứ tự khi lên lớp.
+
+---
+## Trước khi vào lớp
+[ ] Mở sẵn UI (ChatGPT / Playground / tool). Tool nội bộ: từ repo root chạy python demo1_nondeterminism.py (và demo2/3/4 tương ứng).
+[ ] Mở folder backup_screenshots và demo-kit/transcripts (hoặc tab ảnh/transcript backup).
+[ ] Kiểm tra mạng; nếu yếu → chuẩn bị dùng backup.
+[ ] Log: Model ______, Ngày ______
+
+---
+## Demo 1 — Non-determinism (3–5 phút)
+1. Paste prompt: "Giải thích RAG là gì trong 3 câu, tiếng Việt, cho người mới học."
+2. Cấu hình: temp 0.7–1.0. Chạy 3 lần (hoặc chiếu 2 transcript backup).
+3. PAUSE: "A vs B, cái nào pass? Có cần giống y nhau không?"
+4. Chốt: "GenAI test = acceptable range, không phải exact match."
+
+---
+## Demo 2 — Prompt sensitivity (3–5 phút)
+1. Mở input_demo2_paragraph.txt, copy đoạn văn.
+2. P1: "Tóm tắt đoạn sau trong 2 câu." + [dán]. Chạy.
+3. P3: "... trong 2 câu và liệt kê 3 gạch đầu dòng." + [dán]. Chạy.
+4. PAUSE: "Cùng nội dung, vì sao QA phải test nhiều biến thể prompt?"
+5. Chốt: "Robustness theo paraphrase/constraint là trục test riêng."
+
+---
+## Demo 3 — Fluent-but-wrong (3–5 phút)
+1. Chiếu 1 output (ẩn nhãn đúng/sai). Ưu tiên dùng backup nếu đã có "mượt nhưng sai".
+2. PAUSE: "Pass hay fail? Lý do? Sai trục nào?"
+3. Chốt: "Chấm theo evidence & rubric, không theo văn phong."
+
+---
+## Demo 4 (nếu có) — Pipeline
+1. Chiếu: User prompt → Retrieved context → Final answer.
+2. (Hoặc slide + log giả) Case retrieve sai → minh họa triage theo layer.
+
+---
+## Khi có sự cố
+→ Xem risk_checklist.txt. Chuyển sang screenshot/transcript backup ngay.

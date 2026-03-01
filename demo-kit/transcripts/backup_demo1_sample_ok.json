@@ -1,0 +1,9 @@
+{
+  "model": "gpt-4o-mini",
+  "temperature": 0.7,
+  "top_p": 1.0,
+  "timestamp": "backup",
+  "prompt": [{"role": "user", "content": "Giải thích RAG là gì trong 3 câu, tiếng Việt, cho người mới học."}],
+  "response": "RAG (Retrieval-Augmented Generation) là kỹ thuật kết hợp tìm kiếm tài liệu với sinh văn bản. Hệ thống trước khi trả lời sẽ truy vấn nguồn dữ liệu (ví dụ cơ sở tài liệu) để lấy thông tin liên quan. Sau đó mô hình ngôn ngữ dùng chính thông tin đó để tạo câu trả lời, giúp giảm bịa đặt và gắn với nguồn.",
+  "note": "Backup transcript đúng — dùng khi live không chạy hoặc cần so sánh."
+}

@@ -1,0 +1,21 @@
+Checklist rủi ro vận hành (để khỏi chết trên lớp)
+================================================
+
+[ ] Internet yếu
+    → Luôn có screenshot backup trong backup_screenshots/
+    → Transcript backup trong demo-kit/transcripts/ (backup_demo1_*, backup_demo3_*)
+    → Chuyển sang chiếu backup ngay, không cố chạy live.
+
+[ ] Model trả "quá đúng" không ra lỗi
+    → Dùng transcript backup đã chuẩn bị (ví dụ demo 3: fluent-but-wrong).
+    → Đừng cố gắng "chạy đến khi sai".
+
+[ ] Học viên tranh cãi cảm tính
+    → Ép quay về rubric 5 trục: Correctness, Groundedness, Instruction adherence,
+      Coherence/fluency, Safety/appropriateness.
+
+[ ] Tốn thời gian đọc
+    → Đoạn văn ngắn (demo 2: input_demo2_paragraph.txt đã giữ 5–7 câu).
+    → Highlight ý chính trên slide.
+
+Khi có sự cố: xem file này và chuyển sang screenshot/transcript backup ngay.
