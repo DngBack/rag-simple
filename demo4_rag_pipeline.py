@@ -12,10 +12,10 @@ from rag import build_index, retrieve, DEFAULT_PDF
 
 TRANSCRIPT_DIR = Path(__file__).resolve().parent / "demo-kit" / "transcripts"
 
-SYSTEM_PROMPT = """Bạn trả lời dựa CHỈ vào Context dưới đây. Nếu thông tin không có trong Context, hãy nói rõ "Không có trong tài liệu."
-Context:
+SYSTEM_PROMPT = """Bạn là trợ lý tư vấn thuế thu nhập cá nhân. Dưới đây là một số đoạn trích từ tài liệu:
 {context}
-"""
+
+Hãy trả lời câu hỏi dưới đây."""
 
 
 def run_rag_query(
@@ -44,14 +44,14 @@ def run_rag_query(
 
 
 def main():
-    print("Loading PDF and building index...")
+    print("Loading PDF (Luật Thuế TNCN) and building index...")
     chunks, vectors = build_index(DEFAULT_PDF)
     client = get_client()
     transcript_dir = TRANSCRIPT_DIR
     transcript_dir.mkdir(parents=True, exist_ok=True)
 
     # Case 1: query that should retrieve correct context
-    query1 = "Intel Gaudi 3 có bao nhiêu HBM memory và bandwidth? Nêu ngắn gọn số liệu."
+    query1 = "Biểu thuế lũy tiến từng phần áp dụng cho thu nhập từ tiền lương, tiền công gồm những bậc nào?"
     print("\n" + "=" * 60)
     print("USER PROMPT:", query1)
     print("=" * 60)
@@ -63,7 +63,7 @@ def main():
     print(ans1)
 
     # Case 2 (optional): query that may retrieve less relevant context — triage by layer
-    query2 = "Gaudi 3 dùng process bao nhiêu nm?"
+    query2 = "Tôi làm freelance và có thu nhập 50 triệu/tháng, tôi cần nộp thuế bao nhiêu?"
     print("\n" + "=" * 60)
     print("USER PROMPT (case retrieve có thể lệch):", query2)
     print("=" * 60)
@@ -73,7 +73,7 @@ def main():
         print(f"  [{i}] {c[:200]}...")
     print("\nFINAL ANSWER:")
     print(ans2)
-    print("\n(Nếu retrieve đúng đoạn 'TSMC 5nm' thì answer đúng; nếu không → minh họa triage theo layer.)")
+    print("\n(Nếu retrieve đúng điều khoản giảm trừ & biểu thuế thì answer đúng; nếu không → minh họa triage theo layer. Prompt lỏng nên model dễ tự bịa số liệu — đây là lỗ hổng cần tester khai thác.)")
 
 
 if __name__ == "__main__":

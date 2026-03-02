@@ -1,5 +1,7 @@
 # rag-simple
-Simple RAG for test (tài liệu: docs/ Gaudi 3 PDF). Demo kit cho buổi học test GenAI.
+Simple RAG for test (tài liệu: `docs/luat109-2025.pdf` — Luật Thuế Thu Nhập Cá Nhân). Demo kit cho buổi học test GenAI.
+
+> **Lưu ý:** Prompt được giữ **lỏng có chủ ý** để tạo lỗ hổng cho tester khai thác (hallucination số liệu, trả lời ngoài context, không từ chối khi không đủ thông tin, v.v.).
 
 ## Cách chạy
 1. Tạo venv và cài dependency: `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`
