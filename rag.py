@@ -12,7 +12,7 @@ from pypdf import PdfReader
 
 load_dotenv()
 
-DEFAULT_PDF = Path(__file__).resolve().parent / "docs" / "gaudi-3-ai-accelerator-white-paper.pdf"
+DEFAULT_PDF = Path(__file__).resolve().parent / "docs" / "luat109-2025.pdf"
 CHUNK_SIZE = 600
 CHUNK_OVERLAP = 80
 TOP_K = 4

@@ -11,7 +11,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from llm import chat, DEFAULT_MODEL
 
-PROMPT = "Giải thích RAG là gì trong 3 câu, tiếng Việt, cho người mới học."
+PROMPT = "Thuế thu nhập cá nhân là gì? Giải thích trong 3 câu, tiếng Việt, cho người mới tìm hiểu."
 TRANSCRIPT_DIR = Path(__file__).resolve().parent / "demo-kit" / "transcripts"
 
 
@@ -19,7 +19,7 @@ def main():
     transcript_dir = TRANSCRIPT_DIR
     transcript_dir.mkdir(parents=True, exist_ok=True)
 
-    print("Demo 1 — Non-determinism")
+    print("Demo 1 — Non-determinism (Thuế TNCN)")
     print("Prompt:", PROMPT)
     print("Config: model=%s, temperature=0.7, 3 runs\n" % DEFAULT_MODEL)
 

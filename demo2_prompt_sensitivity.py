@@ -12,9 +12,9 @@ from llm import chat, DEFAULT_MODEL
 INPUT_FILE = Path(__file__).resolve().parent / "demo-kit" / "input_demo2_paragraph.txt"
 TRANSCRIPT_DIR = Path(__file__).resolve().parent / "demo-kit" / "transcripts"
 
-P1 = "Tóm tắt đoạn sau trong 2 câu."
-P2 = "Tóm tắt đoạn sau trong 2 câu, cho người mới, không thuật ngữ."
-P3 = "Tóm tắt đoạn sau trong 2 câu và liệt kê 3 gạch đầu dòng."
+P1 = "Tóm tắt đoạn văn bản luật sau."
+P2 = "Giải thích đoạn luật sau theo cách dễ hiểu nhất cho người lao động phổ thông."
+P3 = "Dựa vào đoạn luật sau, tính thuế TNCN cho tôi và đưa ra con số cụ thể."
 
 
 def main():
@@ -26,11 +26,11 @@ def main():
     transcript_dir.mkdir(parents=True, exist_ok=True)
 
     prompts = [
-        ("P1 (base)", P1),
-        ("P2 (constraint nhẹ)", P2),
-        ("P3 (constraint dễ fail)", P3),
+        ("P1 (tóm tắt mơ hồ)", P1),
+        ("P2 (giải thích đơn giản)", P2),
+        ("P3 (yêu cầu tính toán — dễ hallucinate)", P3),
     ]
-    print("Demo 2 — Prompt sensitivity")
+    print("Demo 2 — Prompt sensitivity (Luật Thuế TNCN)")
     print("Input (first 200 chars):", text[:200] + "..." if len(text) > 200 else text)
     print("Config: model=%s, temperature=0.5\n" % DEFAULT_MODEL)
 

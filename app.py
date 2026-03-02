@@ -20,10 +20,10 @@ app = Flask(__name__)
 _chunks = None
 _vectors = None
 
-SYSTEM_TEMPLATE = """Bạn trả lời dựa CHỈ vào Context dưới đây. Nếu thông tin không có trong Context, hãy nói rõ "Không có trong tài liệu."
-Context:
+SYSTEM_TEMPLATE = """Bạn là trợ lý tư vấn thuế thu nhập cá nhân. Dưới đây là một số đoạn trích từ tài liệu tham khảo:
 {context}
-"""
+
+Hãy trả lời câu hỏi của người dùng một cách hữu ích."""
 
 
 def get_index():
@@ -78,7 +78,7 @@ HTML_TEMPLATE = """
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RAG Test — Hỏi đáp tài liệu</title>
+  <title>RAG Test — Hỏi đáp Luật Thuế TNCN</title>
   <style>
     :root { --bg: #0f0f12; --card: #1a1a1f; --text: #e4e4e7; --muted: #71717a; --accent: #22c55e; --border: #27272a; }
     * { box-sizing: border-box; }
@@ -100,10 +100,10 @@ HTML_TEMPLATE = """
 </head>
 <body>
   <div class="container">
-    <h1>RAG Test — Hỏi đáp tài liệu (Gaudi 3)</h1>
+    <h1>RAG Test — Hỏi đáp Luật Thuế TNCN</h1>
     <form method="post" action="/">
       <label for="question">Câu hỏi</label>
-      <textarea id="question" name="question" placeholder="Ví dụ: Intel Gaudi 3 có bao nhiêu HBM memory và bandwidth?">{{ question }}</textarea>
+      <textarea id="question" name="question" placeholder="Ví dụ: Mức giảm trừ gia cảnh cho bản thân là bao nhiêu?">{{ question }}</textarea>
       <button type="submit">Gửi</button>
     </form>
     {% if error %}
