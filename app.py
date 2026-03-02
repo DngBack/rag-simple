@@ -1,6 +1,7 @@
 """
-Web đơn giản để test RAG — hỏi đáp dựa trên tài liệu docs/ (Gaudi 3 PDF).
-Chạy: flask --app app run (hoặc python app.py)
+Web đơn giản để test RAG — hỏi đáp Luật Thuế TNCN.
+Pre-build index: python rag.py
+Chạy web:        python app.py  (hoặc: flask --app app run)
 """
 import os
 from pathlib import Path
@@ -12,11 +13,11 @@ load_dotenv()
 
 # Import sau khi load_dotenv
 from llm import chat, get_client, DEFAULT_MODEL
-from rag import build_index, retrieve, DEFAULT_PDF
+from rag import build_index, save_index, load_index, retrieve, DEFAULT_PDF
 
 app = Flask(__name__)
 
-# Cache index để không build lại mỗi request
+# In-memory cache — loaded from disk on first request
 _chunks = None
 _vectors = None
 
@@ -29,7 +30,13 @@ Hãy trả lời câu hỏi của người dùng một cách hữu ích."""
 def get_index():
     global _chunks, _vectors
     if _chunks is None or _vectors is None:
-        _chunks, _vectors = build_index(DEFAULT_PDF)
+        try:
+            _chunks, _vectors = load_index()
+        except FileNotFoundError:
+            print("[app] Cache not found — building index (OCR + embed, first time only)...")
+            _chunks, _vectors = build_index(DEFAULT_PDF)
+            save_index(_chunks, _vectors)
+            print("[app] Index saved to disk. Next start will be instant.")
     return _chunks, _vectors
 
 
